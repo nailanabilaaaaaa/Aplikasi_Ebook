@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:ebook_app/consttans.dart';
+import 'package:ebook_app/screens/home_screen.dart';
+import 'package:ebook_app/widgets/rounded_button.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,12 +17,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Ebook App',
+      title: 'Book App',
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.white,
         textTheme: Theme.of(context).textTheme.apply(
-          displayColor: kBlackColor,
-          ),
+              displayColor: kBlackColor,
+            ),
       ),
       home: WelcomeScreen(),
     );
@@ -28,6 +30,7 @@ class MyApp extends StatelessWidget {
 }
 
 class WelcomeScreen extends StatelessWidget {
+  const WelcomeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +39,7 @@ class WelcomeScreen extends StatelessWidget {
         width: double.infinity,
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("assets/images/Background.png"),
+            image: AssetImage("assets/images/Bitmap.png"),
             fit: BoxFit.fill,
           ),
         ),
@@ -46,62 +49,35 @@ class WelcomeScreen extends StatelessWidget {
             RichText(
               text: TextSpan(
                 style: Theme.of(context).textTheme.headline4,
+                // ignore: prefer_const_literals_to_create_immutables
                 children: [
                   TextSpan(
-                    text: "Ebook", 
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                    text: "Aplikasi",
                   ),
                   TextSpan(
-                    text: " App.",
+                    text: " Edukasi.",
+                    style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                 ],
               ),
-            ) ,
-            RoundedButton(),
-          ],
-        ),
-      )
-    );
-  }
-}
-
-class RoundedButton extends StatelessWidget {
-  final String text;
-  final Function press;
-  final double verticalPadding;
-  final double fontSize;
-  const RoundedButton({
-    Key? key,
-    required this.text,
-    required this.press,
-    this.verticalPadding = 16,
-    this.fontSize = 16,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {},
-      child: Container(
-        margin: EdgeInsets.symmetric(vertical: 16),
-        padding: EdgeInsets.symmetric(vertical: 16, horizontal: 30),
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(30),
-          boxShadow: [
-            BoxShadow(
-              offset: Offset(0, 15),
-              blurRadius: 30,
-              color: Color(0xFF666666).withOpacity(.11),
             ),
+            SizedBox(
+                width: MediaQuery.of(context).size.width * .6,
+                child: RoundedButton(
+                  text: 'Start Reading',
+                  fontSize: 20,
+                  press: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return HomeScreen();
+                        },
+                      ),
+                    );
+                  },
+                )),
           ],
-        ),
-        child: Text(
-          "Start Reading", 
-          style: TextStyle(
-            fontSize: 16, 
-            fontWeight: FontWeight.bold,
-          ),
         ),
       ),
     );
