@@ -55,7 +55,7 @@ class WelcomeScreen extends StatelessWidget {
                     text: "Aplikasi",
                   ),
                   TextSpan(
-                    text: " Edukasi.",
+                    text: " Ebook.",
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                 ],
