@@ -14,7 +14,7 @@ class HomeScreen extends StatelessWidget {
         width: double.infinity,
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/images/main_page_bg.png'),
+            image: AssetImage('assets/images/Home.png'),
             alignment: Alignment.topCenter,
             fit: BoxFit.fitWidth,
           ),
@@ -31,7 +31,7 @@ class HomeScreen extends StatelessWidget {
                   children: [
                     TextSpan(text: "What are you \nreading"),
                     TextSpan(
-                      text: 'Today?',
+                      text: ' Today?',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                       ),
