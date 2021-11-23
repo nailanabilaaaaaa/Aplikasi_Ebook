@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sized_box_for_whitespace
 
+import 'package:ebook_app/widgets/book_rating.dart';
 import 'package:flutter/material.dart';
 import 'package:ebook_app/consttans.dart';
 
@@ -82,22 +83,39 @@ class HomeScreen extends StatelessWidget {
                             Icons.favorite_border,
                           ),
                         ),
-                        Container(
-                          padding:
-                              EdgeInsets.symmetric(vertical: 8, horizontal: 6),
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(16),
-                            boxShadow: [
-                              BoxShadow(
-                                offset: Offset(3, 7),
-                                blurRadius: 20,
-                                color: Color(0xFD3D3D3).withOpacity(.5)
-                              ),
-                            ],
-                          ),
-                        ),
+                        BookRating(score: 4.9),
                       ],
+                    ),
+                  ),
+                  Positioned(
+                    top: 160,
+                    child: Container(
+                      height: 85, 
+                      width:202,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          RichText(
+                            text: TextSpan(
+                              style: TextStyle(color: kBlackColor),
+                              children: [
+                                TextSpan(
+                                  text: "Crushing & Influencer\n", 
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                TextSpan(
+                                  text: "Gary Venchuk", 
+                                  style: TextStyle(
+                                    color: kBlackColor,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ],
