@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Book App',
+      title: 'EBook App',
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.white,
         textTheme: Theme.of(context).textTheme.apply(
@@ -52,11 +52,11 @@ class WelcomeScreen extends StatelessWidget {
                 // ignore: prefer_const_literals_to_create_immutables
                 children: [
                   TextSpan(
-                    text: "Aplikasi",
+                    text: "Ebook",
+                    style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                   TextSpan(
-                    text: " Ebook.",
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                    text: " App.",
                   ),
                 ],
               ),
@@ -76,7 +76,8 @@ class WelcomeScreen extends StatelessWidget {
                       ),
                     );
                   },
-                )),
+                )
+            ),
           ],
         ),
       ),
