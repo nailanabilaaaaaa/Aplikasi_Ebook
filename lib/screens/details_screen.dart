@@ -89,7 +89,7 @@ class DetailsScreen extends StatelessWidget {
                 children: <Widget>[
                   RichText(
                     text: TextSpan(
-                      style: Theme.of(context).textTheme.dispaly1,
+                      style: Theme.of(context).textTheme.headline6,
                       // ignore: prefer_const_literals_to_create_immutables
                       children: [
                         TextSpan(
@@ -190,7 +190,7 @@ class ChapterCard extends StatelessWidget {
   final String name;
   final String tag;
   final int chapterNumber;
-  final Function press;
+  final Function() press;
   const ChapterCard({
     Key? key, 
     required this.name, 
