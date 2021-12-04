@@ -1,5 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:ebook_app/screens/Login/login_screen.dart';
+import 'package:ebook_app/screens/Signup/signup_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:ebook_app/consttans.dart';
 import 'package:ebook_app/screens/home_screen.dart';
@@ -24,7 +26,12 @@ class MyApp extends StatelessWidget {
               displayColor: kBlackColor,
             ),
       ),
-      home: WelcomeScreen(),
+      home: LoginScreen(),
+      routes: {
+        '/login': (context)=> LoginScreen(),
+        '/signup': (context)=> SignUpScreen(),
+        '/welcomescreen': (context)=>WelcomeScreen(),
+      },
     );
   }
 }
