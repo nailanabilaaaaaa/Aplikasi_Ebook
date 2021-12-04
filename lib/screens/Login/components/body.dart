@@ -1,3 +1,4 @@
+import 'package:ebook_app/main.dart';
 import 'package:flutter/material.dart';
 import 'package:ebook_app/screens/Login/components/background.dart';
 import 'package:ebook_app/screens/Signup/signup_screen.dart';
@@ -39,7 +40,10 @@ class Body extends StatelessWidget {
             ),
             RoundedButton(
               text: "LOGIN",
-              press: () {},
+              press: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => WelcomeScreen()));
+              },
             ),
             SizedBox(height: size.height * 0.03),
             AlreadyHaveAnAccountCheck(
