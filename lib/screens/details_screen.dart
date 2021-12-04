@@ -93,7 +93,7 @@ class DetailsScreen extends StatelessWidget {
                       // ignore: prefer_const_literals_to_create_immutables
                       children: [
                         TextSpan(
-                          text: "You might also",
+                          text: "You might also ",
                         ),
                         TextSpan(
                           text: "Like...,", 
@@ -168,7 +168,7 @@ class DetailsScreen extends StatelessWidget {
                         right: 0,
                         child: Image.asset(
                           "assets/images/book-3.png",
-                          width: 150,
+                          width: 100,
                         ),
                       ),
                     ],
