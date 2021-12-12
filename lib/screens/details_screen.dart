@@ -22,8 +22,9 @@ class DetailsScreen extends StatelessWidget {
               alignment: Alignment.topCenter,
               children: <Widget>[
                 Container(
-                  height: size.height * .4,
-                  width: double.infinity,
+                  alignment: Alignment.topCenter,
+                  padding: EdgeInsets.only(top: size.height * .12, left: size.width * .1, right: size.width * .02),
+                  height: size.height * .48,
                   decoration: BoxDecoration(
                     image: DecorationImage(
                       image: AssetImage("assets/images/Background.png"),
@@ -34,20 +35,10 @@ class DetailsScreen extends StatelessWidget {
                       bottomRight: Radius.circular(50),
                     ),
                   ),
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 24),
-                    child: Column(
-                      children: <Widget>[
-                        SizedBox(
-                          height: size.height * .1,
-                        ),
-                        BookInfo(),
-                      ],
-                    ),
-                  ),
+                  child: BookInfo(size: size,)
                 ),
                 Padding(
-                  padding: EdgeInsets.only(top: size.height * .4 - 30),
+                  padding: EdgeInsets.only(top: size.height * .48 - 30),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     // ignore: prefer_const_literals_to_create_immutables
@@ -82,100 +73,7 @@ class DetailsScreen extends StatelessWidget {
                 ),
               ],
             ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal:  24),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  RichText(
-                    text: TextSpan(
-                      style: Theme.of(context).textTheme.headline6,
-                      // ignore: prefer_const_literals_to_create_immutables
-                      children: [
-                        TextSpan(
-                          text: "You might also ",
-                        ),
-                        TextSpan(
-                          text: "Like...,", 
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(height: 20),
-                  Stack(
-                    children: <Widget>[
-                      Container(
-                        height: 180, 
-                        width: double.infinity,
-                      ),
-                      Positioned(
-                        bottom: 0,
-                        left: 0,
-                        right: 0,
-                        child: Container(
-                          padding: 
-                              EdgeInsets.only(left: 24, top: 24, right: 150),
-                          height: 160,
-                          width: double.infinity,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(29),
-                            color: Color(0xFFFFF8F9),
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              RichText(
-                                text: TextSpan(
-                                  style: TextStyle(color: kBlackColor),
-                                  // ignore: prefer_const_literals_to_create_immutables
-                                  children: [
-                                    TextSpan(
-                                      text: 
-                                          "How Ton Win \nFriends & Influencer\n", 
-                                      style: TextStyle(
-                                        fontSize: 20,
-                                      ),
-                                    ),
-                                    TextSpan(
-                                      text: "Gary Venchuk", 
-                                      style: TextStyle(color: kLightBlackColor),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              Row(
-                                // ignore: prefer_const_literals_to_create_immutables
-                                children: <Widget>[
-                                  BookRating(
-                                    score: 4.9,
-                                  ),
-                                  SizedBox(width: 20),
-                                  Expanded(
-                                    child: RoundedButton(
-                                      text: "Read", press: () {  },
-                                      verticalPadding: 10,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      Positioned(
-                        top: 0,
-                        right: 0,
-                        child: Image.asset(
-                          "assets/images/book-3.png",
-                          width: 100,
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
+            
             SizedBox(
               height: 40,
             ),
@@ -205,8 +103,7 @@ class ChapterCard extends StatelessWidget {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Container(
-      padding: 
-        EdgeInsets.symmetric(vertical: 20, horizontal: 30),
+      padding: EdgeInsets.symmetric(vertical: 20, horizontal: 30),
       margin: EdgeInsets.only(bottom: 16),
       width: size.width - 48,
       decoration: BoxDecoration(
@@ -257,7 +154,7 @@ class ChapterCard extends StatelessWidget {
 
 class BookInfo extends StatelessWidget {
   const BookInfo({
-    Key? key,
+    Key? key, required Size size,
   }) : super(key: key);
 
   @override
