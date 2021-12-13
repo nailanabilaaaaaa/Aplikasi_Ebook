@@ -1,4 +1,5 @@
 import 'package:ebook_app/main.dart';
+import 'package:ebook_app/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:ebook_app/screens/Login/components/background.dart';
 import 'package:ebook_app/screens/Signup/signup_screen.dart';
@@ -42,7 +43,7 @@ class Body extends StatelessWidget {
               text: "LOGIN",
               press: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => WelcomeScreen()));
+                    MaterialPageRoute(builder: (context) => HomeScreen()));
               },
             ),
             SizedBox(height: size.height * 0.03),

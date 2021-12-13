@@ -2,6 +2,7 @@
 
 import 'package:ebook_app/screens/Login/login_screen.dart';
 import 'package:ebook_app/screens/Signup/signup_screen.dart';
+import 'package:ebook_app/screens/Welcome/welcome_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:ebook_app/consttans.dart';
 import 'package:ebook_app/screens/home_screen.dart';
@@ -26,68 +27,12 @@ class MyApp extends StatelessWidget {
               displayColor: kBlackColor,
             ),
       ),
-      home: LoginScreen(),
+      home: WelcomeScreen(),
       routes: {
         '/login': (context)=> LoginScreen(),
         '/signup': (context)=> SignUpScreen(),
         '/welcomescreen': (context)=>WelcomeScreen(),
       },
-    );
-  }
-}
-
-class WelcomeScreen extends StatelessWidget {
-  const WelcomeScreen({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        width: double.infinity,
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage("assets/images/Background.png"),
-            fit: BoxFit.fill,
-          ),
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            RichText(
-              text: TextSpan(
-                style: Theme.of(context).textTheme.headline4,
-                // ignore: prefer_const_literals_to_create_immutables
-                children: [
-                  TextSpan(
-                    text: "Ebook",
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                  TextSpan(
-                    text: " App.",
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(
-                width: MediaQuery.of(context).size.width * .6,
-                child: RoundedButton(
-                  text: 'Start Reading',
-                  fontSize: 20,
-                  press: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) {
-                          return HomeScreen();
-                        },
-                      ),
-                    );
-                  },
-                ),
-            ),
-          ],
-        ),
-      ),
     );
   }
 }
