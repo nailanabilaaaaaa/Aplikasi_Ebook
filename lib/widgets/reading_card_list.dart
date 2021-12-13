@@ -3,6 +3,7 @@
 import 'package:ebook_app/consttans.dart';
 import 'package:ebook_app/widgets/book_rating.dart';
 import 'package:ebook_app/widgets/two_side_rounded_button.dart';
+import 'package:favorite_button/favorite_button.dart';
 import "package:flutter/material.dart";
 
 class ReadingListCard extends StatelessWidget {
@@ -59,15 +60,14 @@ class ReadingListCard extends StatelessWidget {
             right: 10,
             child: Column(
               children: <Widget>[
-                IconButton(
-                  onPressed: () {
-                    print('Favorited');
-                  },
-                  icon: Icon(
-                    Icons.favorite,
-                  ),
-                  color: Colors.red,
-                ),
+                FavoriteButton(
+                isFavorite: false,
+                iconDisabledColor: Colors.grey,
+                valueChanged: (_isFavorite) {
+                  print('Is Favorite : $_isFavorite');
+                },
+                iconSize: 40,
+              ),
                 BookRating(score: rating),
               ],
             ),
