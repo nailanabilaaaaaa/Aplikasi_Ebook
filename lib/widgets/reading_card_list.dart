@@ -60,10 +60,13 @@ class ReadingListCard extends StatelessWidget {
             child: Column(
               children: <Widget>[
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    print('Favorited');
+                  },
                   icon: Icon(
-                    Icons.favorite_border,
+                    Icons.favorite,
                   ),
+                  color: Colors.red,
                 ),
                 BookRating(score: rating),
               ],
