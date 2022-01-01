@@ -24,14 +24,16 @@ class Body extends StatelessWidget {
           children: <Widget>[
             Text(
               "LOGIN",
-              style: TextStyle(fontWeight: FontWeight.bold),
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 20),
             ),
-            SizedBox(height: size.height * 0.03),
+            SizedBox(height: size.height * 0.05),
             SvgPicture.asset(
-              "assets/icons/login.svg",
-              height: size.height * 0.35,
+              "assets/icons/female.svg",
+              height: size.height * 0.25,
             ),
-            SizedBox(height: size.height * 0.03),
+            SizedBox(height: size.height * 0.05),
             RoundedInputField(
               hintText: "Your Email",
               onChanged: (value) {},
