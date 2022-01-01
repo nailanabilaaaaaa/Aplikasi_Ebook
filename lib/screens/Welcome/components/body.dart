@@ -18,12 +18,15 @@ class Body extends StatelessWidget {
           children: <Widget>[
             Text(
               "WELCOME TO EBOOK APP",
-              style: TextStyle(fontWeight: FontWeight.bold),
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
+              ),
             ),
             SizedBox(height: size.height * 0.05),
             SvgPicture.asset(
-              "assets/icons/chat.svg",
-              height: size.height * 0.45,
+              "assets/icons/book.svg",
+              height: size.height * 0.25,
             ),
             SizedBox(height: size.height * 0.05),
             RoundedButton(
