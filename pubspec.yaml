@@ -36,6 +36,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter_svg: ^0.20.0-nullsafety.3
   favorite_button: ^0.0.4
+  salomon_bottom_bar: ^3.2.0
 
 dev_dependencies:
   flutter_test:

@@ -1,110 +1,42 @@
-import 'package:ebook_app/consttans.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
-class CustomBottomNavigationBar extends StatefulWidget {
-  const CustomBottomNavigationBar({ Key? key }) : super(key: key);
+class BottomNav extends StatefulWidget {
+  const BottomNav({Key? key}) : super(key: key);
 
   @override
-  _CustomBottomNavigationBarState createState() => _CustomBottomNavigationBarState();
+  State<BottomNav> createState() => _BottomNavState();
 }
 
-class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
+class _BottomNavState extends State<BottomNav> {
+   int _currentIndex = 0;
 
-  List<Widget> tabs = [
-    Center(child: Text("Home",style: TextStyle(color: Colors.white))),
-    Center(child: Text("Search",style: TextStyle(color: Colors.white))),
-    Center(child: Text("Profile",style: TextStyle(color: Colors.white))),
-    Center(child: Text("Notification",style: TextStyle(color: Colors.white))),
-    Center(child: Text("Add item",style: TextStyle(color: Colors.white))),
-  ];
-
-  int currentPage = 0;
-
-  setPage(index) {
-    setState(() {
-      currentPage = index;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey.shade800,
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.grey.shade900,
-        title: Text('Navigation Bar'),
-      ),
-      body: tabs[currentPage],
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.blue.shade400,
-        onPressed: () => setPage(4),
-        child: Icon(Icons.add, color: Colors.white, size: 30,),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      bottomNavigationBar: BottomAppBar(
-        color: Colors.grey.shade900,
-        shape: CircularNotchedRectangle(),
-        child: Container(
-          height: 80,
-          padding: EdgeInsets.symmetric(horizontal: 20),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              IconButton(
-                icon: Icon(Icons.home, color: currentPage == 0 ? Colors.white :
-                Colors.grey, size: 30,),
-                onPressed: () => setPage(0),
+      bottomNavigationBar: SalomonBottomBar(
+        currentIndex: _currentIndex,
+        margin: EdgeInsets.only(bottom: 30, left: 20, right: 20, top: 10),
+        onTap: (index) {
+          setState(() {
+            _currentIndex = index;
+          });
+        },
+        items: [
+          SalomonBottomBarItem(
+              icon: Icon(Icons.home),
+              title: Text("Home"),
+              selectedColor: Colors.white
               ),
-              IconButton(
-                icon: Icon(Icons.search, color: currentPage == 0 ? Colors.white :
-                Colors.grey, size: 30,),
-                onPressed: () => setPage(1),
-              ),
-              SizedBox.shrink(),
-              IconButton(
-                icon: Icon(Icons.person, color: currentPage == 0 ? Colors.white :
-                Colors.grey, size: 30,),
-                onPressed: () => setPage(2),
-              ),
-              IconButton(
-                icon: Icon(Icons.notifications_outlined, color: currentPage == 0 ? Colors.white :
-                Colors.grey, size: 30,),
-                onPressed: () => setPage(3),
-              )
-            ],
+          SalomonBottomBarItem(
+            icon: Icon(Icons.person),
+            title: Text("Profile"),
+            selectedColor: Colors.white,
           )
-        )
+        ],
       ),
-      // bottomNavigationBar: FlashyTabBar(
-      //   selectedIndex: currentPage,
-      //   showElevation: true,
-      //   onItemSelected: (index) => setState(() {
-      //     currentPage = index;
-      //   }),
-      //   items: [
-      //     FlashyTabBarItem(
-      //       icon: Icon(Icons.event),
-      //       title: Text('Events'),
-      //     ),
-      //     FlashyTabBarItem(
-      //       icon: Icon(Icons.search),
-      //       title: Text('Search'),
-      //     ),
-      //     FlashyTabBarItem(
-      //       icon: Icon(Icons.highlight),
-      //       title: Text('Highlights'),
-      //     ),
-      //     FlashyTabBarItem(
-      //       icon: Icon(Icons.settings),
-      //       title: Text('Settings'),
-      //     ),
-      //     FlashyTabBarItem(
-      //       icon: Icon(Icons.settings),
-      //       title: Text('한국어'),
-      //     ),
-      //   ],
-      // ),
     );
   }
 }

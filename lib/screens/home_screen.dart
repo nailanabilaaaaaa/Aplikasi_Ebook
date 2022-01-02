@@ -7,9 +7,17 @@ import 'package:ebook_app/widgets/two_side_rounded_button.dart';
 import 'package:ebook_app/widgets/bottom_navigation.dart';
 import 'package:flutter/material.dart';
 import 'package:ebook_app/consttans.dart';
+import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  int _currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -91,7 +99,27 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
       ),
+      bottomNavigationBar: SalomonBottomBar(
+        currentIndex: _currentIndex,
+        margin: EdgeInsets.only(bottom: 30, left: 80, right: 80, top: 10),
+        onTap: (i) {
+          setState(() {
+            _currentIndex = i;
+          });
+        },
+        items: [
+          SalomonBottomBarItem(
+              icon: Icon(Icons.home),
+              title: Text("Home"),
+              selectedColor: Colors.black,
+              ),
+          SalomonBottomBarItem(
+            icon: Icon(Icons.person),
+            title: Text("Profile"),
+            selectedColor: Colors.black,
+          )
+        ],
+      ),
     );
   }
-  
 }
