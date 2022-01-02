@@ -2,6 +2,7 @@
 
 import 'package:ebook_app/screens/User/user_screen.dart';
 import 'package:ebook_app/screens/details_screen.dart';
+import 'package:ebook_app/screens/read_screen.dart';
 import 'package:ebook_app/widgets/book_rating.dart';
 import 'package:ebook_app/widgets/reading_card_list.dart';
 import 'package:ebook_app/widgets/two_side_rounded_button.dart';
@@ -89,48 +90,82 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                             );
                           },
-                          pressRead: () {},
+                         pressRead: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) {
+                                  return ReadScreen();
+                                },
+                              ),
+                            );
+                          },
                         ),
                         ReadingListCard(
                           image: "assets/images/book-2.png",
                           title: "Top Ten Business Hacks",
                           auth: "Herman Joel",
                           rating: 4.8,
-                          pressDetails: () {},
-                          pressRead: () {},
+                          pressDetails: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) {
+                                  return DetailsScreen();
+                                },
+                              ),
+                            );
+                          },
+                          pressRead: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) {
+                                  return ReadScreen();
+                                },
+                              ),
+                            );
+                          },
                         ),
                         SizedBox(width: 30),
                       ],
                     ),
                   ),
-                  
                 ],
               ),
             ),
             Container(
-                  width: 200,
-                  height: 45,
-                  child: TextButton(
-                    style: TextButton.styleFrom(
-                      backgroundColor: Color(0xffF18265),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20),
-                      ),
+              width: 395,
+              height: 45,
+              child: TextButton(
+                style: TextButton.styleFrom(
+                  backgroundColor: Color(0xFF393939),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(100),
                     ),
-                    onPressed: () {},
-                    child: Text(
-                      "Let's take a picture",
-                      style: TextStyle(
-                        color: Color(0xffffffff),
-                      ),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return UserScreen();
+                      },
                     ),
+                  );
+                },
+                child: Text(
+                  "Profil User",
+                  style: TextStyle(
+                    color: Color(0xffffffff),
+                    fontSize: 18,
                   ),
                 ),
+              ),
+            ),
           ],
         ),
       ),
     );
-    
-      
   }
 }
