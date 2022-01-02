@@ -103,46 +103,34 @@ class _HomeScreenState extends State<HomeScreen> {
                       ],
                     ),
                   ),
+                  
                 ],
               ),
             ),
+            Container(
+                  width: 200,
+                  height: 45,
+                  child: TextButton(
+                    style: TextButton.styleFrom(
+                      backgroundColor: Color(0xffF18265),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                    ),
+                    onPressed: () {},
+                    child: Text(
+                      "Let's take a picture",
+                      style: TextStyle(
+                        color: Color(0xffffffff),
+                      ),
+                    ),
+                  ),
+                ),
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _currentIndex,
-        type: BottomNavigationBarType.fixed,
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            title: Text('Home'),
-            
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            title: Text('Profile'),
-          ),
-        ],
-        onTap: (value) {
-          print(value);
-          setState(() {
-            _currentIndex = value;
-          });
-        },
-      ),
     );
+    
+      
   }
-  Widget body() {
-      switch (_currentIndex) {
-        case 0:
-          return HomeScreen();
-          break;
-        case 1:
-          return UserScreen();
-          break;
-
-        default:
-          return HomeScreen();
-      }
-    }
 }
