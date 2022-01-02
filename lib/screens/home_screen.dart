@@ -5,7 +5,6 @@ import 'package:ebook_app/screens/details_screen.dart';
 import 'package:ebook_app/widgets/book_rating.dart';
 import 'package:ebook_app/widgets/reading_card_list.dart';
 import 'package:ebook_app/widgets/two_side_rounded_button.dart';
-import 'package:ebook_app/widgets/coustom_bottom_nav_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:ebook_app/consttans.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
