@@ -1,10 +1,10 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sized_box_for_whitespace
 
+import 'package:ebook_app/screens/User/user_screen.dart';
 import 'package:ebook_app/screens/details_screen.dart';
 import 'package:ebook_app/widgets/book_rating.dart';
 import 'package:ebook_app/widgets/reading_card_list.dart';
 import 'package:ebook_app/widgets/two_side_rounded_button.dart';
-import 'package:ebook_app/widgets/bottom_navigation.dart';
 import 'package:flutter/material.dart';
 import 'package:ebook_app/consttans.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
