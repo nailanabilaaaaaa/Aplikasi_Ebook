@@ -99,27 +99,6 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
-      bottomNavigationBar: SalomonBottomBar(
-        currentIndex: _currentIndex,
-        margin: EdgeInsets.only(bottom: 30, left: 80, right: 80, top: 10),
-        onTap: (i) {
-          setState(() {
-            _currentIndex = i;
-          });
-        },
-        items: [
-          SalomonBottomBarItem(
-              icon: Icon(Icons.home),
-              title: Text("Home"),
-              selectedColor: Colors.black,
-              ),
-          SalomonBottomBarItem(
-            icon: Icon(Icons.person),
-            title: Text("Profile"),
-            selectedColor: Colors.black,
-          )
-        ],
-      ),
     );
   }
 }
