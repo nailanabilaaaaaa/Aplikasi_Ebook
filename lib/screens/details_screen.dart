@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:ebook_app/consttans.dart';
+import 'package:ebook_app/screens/User/user_screen.dart';
 import 'package:ebook_app/widgets/book_rating.dart';
 import 'package:ebook_app/widgets/rounded_button.dart';
 import 'package:ebook_app/screens/read_screen.dart';
@@ -98,7 +99,7 @@ class DetailsScreen extends StatelessWidget {
                             context,
                             MaterialPageRoute(
                               builder: (context) {
-                                return ReadScreen();
+                                return UserScreen();
                               },
                             ),
                           );
