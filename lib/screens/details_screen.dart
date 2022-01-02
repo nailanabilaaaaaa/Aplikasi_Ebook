@@ -3,6 +3,7 @@
 import 'package:ebook_app/consttans.dart';
 import 'package:ebook_app/widgets/book_rating.dart';
 import 'package:ebook_app/widgets/rounded_button.dart';
+import 'package:ebook_app/screens/read_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
@@ -47,25 +48,61 @@ class DetailsScreen extends StatelessWidget {
                         name: "Money",
                         chapterNumber: 1,
                         tag: "Life is about change",
-                        press: () {},
+                        press: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) {
+                                return ReadScreen();
+                              },
+                            ),
+                          );
+                        },
                       ),
                       ChapterCard(
                         name: "Power",
                         chapterNumber: 2,
                         tag: "Everyting loves power",
-                        press: () {},
+                        press: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) {
+                                return ReadScreen();
+                              },
+                            ),
+                          );
+                        },
                       ),
                       ChapterCard(
                         name: "Influencer",
                         chapterNumber: 3,
                         tag: "Influencer easily like never befor",
-                        press: () {},
+                        press: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) {
+                                return ReadScreen();
+                              },
+                            ),
+                          );
+                        },
                       ),
                       ChapterCard(
                         name: "Win",
                         chapterNumber: 4,
                         tag: "Winning is what matters",
-                        press: () {},
+                        press: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) {
+                                return ReadScreen();
+                              },
+                            ),
+                          );
+                        },
                       ),
                       SizedBox(height: 10),
                     ],
