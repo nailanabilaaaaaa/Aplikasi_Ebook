@@ -1,16 +1,23 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sized_box_for_whitespace
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sized_box_for_whitespace, deprecated_member_use
 
 import 'package:ebook_app/screens/User/user_screen.dart';
 import 'package:ebook_app/screens/details_screen.dart';
 import 'package:ebook_app/widgets/book_rating.dart';
 import 'package:ebook_app/widgets/reading_card_list.dart';
 import 'package:ebook_app/widgets/two_side_rounded_button.dart';
+import 'package:ebook_app/widgets/coustom_bottom_nav_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:ebook_app/consttans.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
+import '../enums.dart';
+
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  static String routeName = "/home";
+
+  const HomeScreen({
+    Key? key
+  }) : super(key: key);
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -19,8 +26,12 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int _currentIndex = 0;
 
+
+  var icon;
+
   @override
   Widget build(BuildContext context) {
+    
     var size = MediaQuery.of(context).size;
     return Scaffold(
       body: SingleChildScrollView(
@@ -99,27 +110,40 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
-      bottomNavigationBar: SalomonBottomBar(
+      bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
-        margin: EdgeInsets.only(bottom: 30, left: 80, right: 80, top: 10),
-        onTap: (i) {
+        type: BottomNavigationBarType.fixed,
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            title: Text('Home'),
+            
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            title: Text('Profile'),
+          ),
+        ],
+        onTap: (value) {
+          print(value);
           setState(() {
-            _currentIndex = i;
+            _currentIndex = value;
           });
         },
-        items: [
-          SalomonBottomBarItem(
-              icon: Icon(Icons.home),
-              title: Text("Home"),
-              selectedColor: Colors.black,
-              ),
-          SalomonBottomBarItem(
-            icon: Icon(Icons.person),
-            title: Text("Profile"),
-            selectedColor: Colors.black,
-          )
-        ],
       ),
     );
   }
+  Widget body() {
+      switch (_currentIndex) {
+        case 0:
+          return HomeScreen();
+          break;
+        case 1:
+          return UserScreen();
+          break;
+
+        default:
+          return HomeScreen();
+      }
+    }
 }
