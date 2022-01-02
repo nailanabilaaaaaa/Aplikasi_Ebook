@@ -37,6 +37,8 @@ dependencies:
   flutter_svg: ^0.20.0-nullsafety.3
   favorite_button: ^0.0.4
   salomon_bottom_bar: ^3.2.0
+  http: ^0.13.4
+  provider: ^6.0.2
 
 dev_dependencies:
   flutter_test:
