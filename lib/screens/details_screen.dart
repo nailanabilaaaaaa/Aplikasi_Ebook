@@ -236,7 +236,7 @@ class BookInfo extends StatelessWidget {
                           height: 5,
                         ),
                         RoundedButton(text: "Read", fontSize: 12,verticalPadding: 10, press: (){
-                          ReadScreen();
+                          return ReadScreen();
                         }),
                       ],
                     ),
