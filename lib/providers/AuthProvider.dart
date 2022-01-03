@@ -1,56 +1,47 @@
 import 'package:ebook_app/models/User.dart';
+import 'package:ebook_app/services/api.dart';
 import 'package:ebook_app/services/auth_service.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthProvider with ChangeNotifier {
-  late User _user;
+   bool isAuthenticated = false;
+  late String token;
+  late ApiService apiService;
 
-  User get user => _user;
+  AuthProvider() {
+    init();
+  }
 
-  set user(User user) {
-    _user = user;
+  Future<void> init() async {
+    this.token = await getToken();
+    if (this.token.isNotEmpty) {
+      this.isAuthenticated = true;
+    }
+    this.apiService = new ApiService(this.token);
     notifyListeners();
   }
 
-  Future<bool> register({
-    required String name,
-    required String email,
-    required String password,
-    required String passwordConfirm,
-    required String deviceName
-  }) async {
-    try {
-      User user = await AuthService().register(
-        name: name,
-        email: email,
-        password: password,
-        passwordConfirm: passwordConfirm,
-        deviceName: deviceName
-      );
-
-      _user = user;
-      return true;
-    } catch (e) {
-      print(e);
-      return false;
-    }
+  Future<void> login(String email, String password, String deviceName) async {
+    this.token = await apiService.login(email, password, deviceName);
+    setToken(this.token);
+    this.isAuthenticated = true;
+    notifyListeners();
   }
 
-  Future<bool> login({
-    required String email,
-    required String password,
-  }) async {
-    try {
-      User user = await AuthService().login(
-        email: email,
-        password: password,
-      );
+  Future<void> logOut() async {
+    setToken('');
+    this.isAuthenticated = false;
+    notifyListeners();
+  }
 
-      _user = user;
-      return true;
-    } catch (e) {
-      print(e);
-      return false;
-    }
+  Future<void> setToken(String token) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString('token', token);
+  }
+
+  Future<String> getToken() async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getString('token') ?? '';
   }
 }
